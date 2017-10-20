@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   container: {
-    flex: 1,
+    flex: 0.88,
     backgroundColor: '#E0FFFF'
   },
   welcome: {
@@ -125,14 +125,13 @@ export default class Basic extends Component {
         isOpen={this.state.isOpen}
         onChange={isOpen => this.updateMenuState(isOpen)}
       >
-        <View style={styles.container}>
-        <View style={{flex: 0.12, backgroundColor: '#87CEFA', paddingBottom: 25}} >
+      <View style={{flex: 0.12, backgroundColor: '#87CEFA'}} >
         <TouchableHighlight>
-        <Text style={styles.welcome}>
-        Gastos de {monthName}
+        <Text style={styles.welcome}>{monthName}
         </Text>
-    </TouchableHighlight>
+        </TouchableHighlight>
         </View>
+        <View style={styles.container}>
         {screenCurrent}
         </View>
         <TouchableOpacity

@@ -44,11 +44,11 @@ export default class CriarFinancias extends Component {
   render() {
 
     return (
-      <View style={{ alignItems: 'center', flexDirection: 'column', paddingTop: 20}}>
-      <Text style={{fontSize: 20, width: 200, backgroundColor: 'gray', color: 'black', textAlign: 'center', padding:10, fontWeight: 'bold',}}>Novo Gasto</Text>
+      <View style={{ alignItems: 'center', flexDirection: 'column',flex: 0.88}}>
+      <View style={{flex: 0.5, alignItems: 'center', justifyContent: 'center'}}>
       <TextInput
         ref='FirstInput'
-        style={{height: 40, width: 200,  borderColor: 'gray', borderWidth: 3, borderLeftColor: 'gray', borderRightColor: 'gray'}}
+        style={{height: 40, width: 300,  borderColor: '#E0FFFF', borderWidth: 2, borderLeftColor: '#E0FFFF', borderRightColor: '#E0FFFF', marginBottom:20, marginTop:60}}
         onChangeText={(descricao) => this.setState({descricao})}
         returnKeyType = {"next"}
         autoFocus = {true}
@@ -61,19 +61,20 @@ export default class CriarFinancias extends Component {
       />
       <TextInput
         ref='SecondInput'
-        style={{height: 40, width: 200,  borderColor: 'gray', borderWidth: 3, borderLeftColor: 'gray', borderRightColor: 'gray'}}
+        style={{height: 40, width: 300,  borderColor: '#E0FFFF', borderWidth: 2, borderLeftColor: '#E0FFFF', borderRightColor: '#E0FFFF'}}
         onChangeText={(valor) => this.setState({valor})}
         placeholder='Valor'
         placeholderTextColor='#A9A9A9'
         keyboardType='numeric'
         value={this.state.valor}
       />
-      <View style={{padding: 10, width: 200, backgroundColor: 'gray'}}>
+      <View style={{padding: 10, width: 200, borderColor: '#E0FFFF'}}>
       <Button
         onPress={this.enviarGasto}
         title="Enviar"
         color="#32CD32"
       />
+      </View>
       </View>
       </View>
     );

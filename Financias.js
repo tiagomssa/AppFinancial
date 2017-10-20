@@ -26,7 +26,7 @@ export default class Financias extends Component {
             for(var i=0; i<items.length; i++){
                 totalItems+=parseFloat(items[i].Valor);
             }
-            this.setState({total: totalItems});
+            this.setState({total: totalItems.toFixed(2)});
           }
         });
       })
@@ -55,7 +55,7 @@ export default class Financias extends Component {
                     </View>}
         />
         </ScrollView>
-        <View style={{flexDirection: 'row', backgroundColor: 'gray', padding: 10}}>
+        <View style={{flexDirection: 'row', backgroundColor: '#E0FFFF', padding: 10, width: 300}}>
         <Text style={{ color:'black', fontSize: 20, fontWeight: 'bold'} }>Total Gasto: </Text>
         <Text style={{color:'black',fontWeight: 'bold', fontSize: 20} }>R${this.state.total} </Text>
         </View>
