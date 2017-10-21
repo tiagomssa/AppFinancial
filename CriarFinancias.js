@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Button, Alert } from 'react-native';
+import { Text, View, TextInput, Button, Alert, Keyboard, ToastAndroid } from 'react-native';
 
 export default class CriarFinancias extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class CriarFinancias extends Component {
   }
 
   enviarGasto(){
+    const {goBack} = this.props.navigation;
     if(this.state.descricao === "" || this.state.valor === ""){
       Alert.alert("Aviso!", "Preencher todos os campos!");
       return;
@@ -30,9 +31,11 @@ export default class CriarFinancias extends Component {
     .then((response)  =>{
       console.log(response);
       if(response.status == 200) {
-        Alert.alert('Sucess', 'Cadastro realizado!');
+        //Alert.alert('Sucess', 'Cadastro realizado!');
+        ToastAndroid.show('Inserted Sucess', 2000);
         this.setState({descricao: "", valor: ""});
-        this.refs.FirstInput.focus(); 
+        //goBack('Home');
+        Keyboard.dismiss();
       }
       else{
         Alert.alert('Error', 'Nao cadastrado!');
@@ -41,10 +44,14 @@ export default class CriarFinancias extends Component {
     });
   }
 
-  render() {
+  static navigationOptions = {
+    title: 'Criar Gasto',
+  };
 
+  render() {
+    
     return (
-      <View style={{ alignItems: 'center', flexDirection: 'column',flex: 0.88}}>
+      <View style={{ alignItems: 'center', flexDirection: 'column',flex: 1}}>
       <View style={{flex: 0.5, alignItems: 'center', justifyContent: 'center'}}>
       <TextInput
         ref='FirstInput'

@@ -34,6 +34,9 @@ export default class Financias extends Component {
         console.error(error);
       });
   }
+  static navigationOptions = {
+    title: 'Spents List',
+  };
 
   render() {
 

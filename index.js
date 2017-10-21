@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import Basic from './Basic';
+import App from './TestNavigation';
 
-AppRegistry.registerComponent('AppFinancial', () => Basic);
+AppRegistry.registerComponent('AppFinancial', () => App);
